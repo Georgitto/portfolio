@@ -12,12 +12,8 @@ const i18nConfig = {
 }
 
 if(isLocalStorageAvailable()) {
-    if(isUserLocaleExist()) {
-        i18nConfig.locale = getUserLocale()
-    } else {
-        setUserLocale(defaultLocale)
-        i18nConfig.locale = getUserLocale()
-    }
+    if(!isUserLocaleExist()) setUserLocale(defaultLocale)
+    i18nConfig.locale = getUserLocale()
 } else {
     i18nConfig.locale = defaultLocale
 }
